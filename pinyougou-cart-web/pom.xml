@@ -122,8 +122,18 @@
 	                <artifactId>log4j-over-slf4j</artifactId>  
 	            </exclusion>  
 	        </exclusions>  
-		</dependency> 
-   </dependencies>
+		</dependency>
+		<dependency>
+			<groupId>com.pinyougou</groupId>
+			<artifactId>pinyougou-user-interface</artifactId>
+			<version>0.0.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.pinyougou</groupId>
+			<artifactId>pinyougou-order-interface</artifactId>
+			<version>0.0.3-SNAPSHOT</version>
+		</dependency>
+  </dependencies>
   
   
     <build>  

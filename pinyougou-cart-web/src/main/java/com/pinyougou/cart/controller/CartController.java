@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,13 +52,19 @@ public class CartController {
 
     
     @RequestMapping("/addGoodsToCartList")
+    //@CrossOrigin(origins="http://localhost:9105",allowCredentials="true")
     public Result addGoodsToCartList(Long itemId,Integer num){
         /**
          * 1、获取cookie购物车
          * 2、将商品添加到cookie购物车中
          * 3、将cookie购物车写会浏览器
          */
-        try {
+    	//允许调用  实现跨域问题
+    	response.setHeader("Access-Control-Allow-Origin", "http://localhost:9105");
+    	//允许传递cookie信息
+    	response.setHeader("Access-Control-Allow-Credentials", "true");
+    	
+    	try {
             String username = SecurityContextHolder.getContext().getAuthentication().getName();
             System.out.println("登录用户："+username);
             

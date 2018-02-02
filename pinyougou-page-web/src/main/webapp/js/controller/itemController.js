@@ -64,6 +64,17 @@ app.controller("itemController",function($scope){
 	
 	//添加商品到购物车
 	$scope.addToCart=function(){
+		$http.get('http://localhost:9017/cart/addGoodsToCartList.do?itemId='+$scope.sku.id+'&num='+$scope.num,'withCredentials':true).success(
+		function(response){
+			if(response.success){
+				//跳转到购物车页面
+				location.href='http://localhost:9107/cart.html';
+				
+			}else{
+				alert(reponse.message)
+			}
+		}		
+		)
 		alert('SKUID:'+$scope.sku.id );		
 	}
 	
